@@ -7,7 +7,7 @@ export default function About() {
 
     useEffect(() => {
         async function getAbout() {
-            const response = await fetch("about.md");
+            const response = await fetch("./about.md");
             const text = await response.text();
 
             setContent(text);
