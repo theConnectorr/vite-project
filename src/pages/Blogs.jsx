@@ -19,6 +19,17 @@ export default function Blogs() {
 
     // return <div>{content}</div>;
 	return <div className="content">
-		<Markdown remarkPlugins={[remarkGfm]}>{content}</Markdown>
+		<Markdown remarkPlugins={[remarkGfm]} 
+			components={{
+				h2(props) {
+					return <h2 id={props.children.replace(' ', '-')} children={props.children}/>;
+				},
+				a(props) {
+					if (props.href[0] === '#')
+						return <a href={props.href} target="_self" children={props.children}/>;
+					return <a href={props.href} target="_blank" children={props.children}/>;
+				}
+			}}
+		>{content}</Markdown>
 	</div>;
 } 
