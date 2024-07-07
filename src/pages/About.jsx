@@ -5,9 +5,11 @@ import remarkGfm from "remark-gfm";
 export default function About() {
     const [content, setContent] = useState("");
 
+    console.log("hello", import.meta.env.BASE_URL);
+
     useEffect(() => {
         async function getAbout() {
-            const response = await fetch("./about.md");
+            const response = await fetch(`.${import.meta.env.BASE_URL}about.md`);
             const text = await response.text();
 
             setContent(text);

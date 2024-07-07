@@ -14,7 +14,7 @@ export default function Blogs() {
 			setContent(textContent);
 		}
 
-		getBLog("./blogs/vi/github101_vi.md");
+		getBLog(`.${import.meta.env.BASE_URL}blogs/vi/github101_vi.md`);
     }, []);
 
     // return <div>{content}</div>;
